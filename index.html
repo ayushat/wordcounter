@@ -3,12 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <!-- GOOGLE FONT -->
     <link
       href="https://fonts.googleapis.com/css2?family=Righteous&family=Sofia&display=swap"
       rel="stylesheet"
     />
     <title>Word Counter</title>
     <style>
+      html {
+        overflow: hidden;
+      }
       body {
         box-sizing: border-box;
       }
@@ -91,6 +102,21 @@
       #show {
         color: white;
       }
+      #btn {
+        width: 80px;
+        height: 5%;
+        /* background-color: rgba(255, 255, 255, 0.4); */
+        background-color: transparent;
+        color: whitesmoke;
+        position: relative;
+        left: 22%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        outline: none;
+      }
+      #btn:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+      }
     </style>
   </head>
   <body>
@@ -99,6 +125,9 @@
       <h1>
         Word Counter
       </h1>
+      <button onclick="reset()" id="btn">
+        <i class="fa fa-undo" aria-hidden="true"></i> Clear
+      </button>
       <div id="box">
         <textarea
           id="word"
@@ -125,6 +154,10 @@
           }
         }
         document.getElementById('show').innerHTML = count;
+      }
+      function reset() {
+        const words = (document.getElementById('word').value = '');
+        document.getElementById('show').innerHTML = 0;
       }
     </script>
   </body>
